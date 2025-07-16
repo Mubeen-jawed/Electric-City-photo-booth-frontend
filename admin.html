@@ -1,0 +1,77 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Login</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/home-logo"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="flex items-center justify-center h-screen bg-gradient-to-br from-pink-100 to-blue-100"
+  >
+    <div class="bg-white p-8 rounded shadow-md w-full max-w-sm">
+      <h2 class="text-2xl font-bold text-center text-pink-600 mb-6">
+        Admin Login
+      </h2>
+      <form class="space-y-4" id="loginForm">
+        <input
+          class="w-full p-2 border rounded"
+          id="username"
+          placeholder="Username"
+          required=""
+          type="text"
+        />
+        <input
+          class="w-full p-2 border rounded"
+          id="password"
+          placeholder="Password"
+          required=""
+          type="password"
+        />
+        <button
+          class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600"
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+      <p class="text-red-500 text-sm mt-4 hidden" id="errorMsg">
+        Invalid credentials
+      </p>
+    </div>
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          const res = await fetch(
+            "https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/login",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ username, password }),
+            }
+          );
+
+          const data = await res.json();
+          if (res.ok) {
+            localStorage.setItem("isAuthenticated", "true");
+            window.location.href = "/index.html"; // redirect to homepage or admin version
+          } else {
+            document.getElementById("errorMsg").classList.remove("hidden");
+          }
+        });
+    </script>
+  </body>
+</html>
