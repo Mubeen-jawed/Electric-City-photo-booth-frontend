@@ -1,6 +1,4 @@
-<!-- admin.html -->
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -11,7 +9,6 @@
       type="image/x-icon"
       href="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/home-logo"
     />
-
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body
@@ -26,32 +23,47 @@
           class="w-full p-2 border rounded"
           id="username"
           placeholder="Username"
-          required=""
+          required
           type="text"
         />
         <input
           class="w-full p-2 border rounded"
           id="password"
           placeholder="Password"
-          required=""
+          required
           type="password"
         />
         <button
-          class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600"
+          id="loginBtn"
+          class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 flex items-center justify-center"
           type="submit"
         >
-          Login
+          <span id="loginText">Login</span>
+          <span
+            id="loaderSpinner"
+            class="ml-2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin hidden"
+          ></span>
         </button>
       </form>
       <p class="text-red-500 text-sm mt-4 hidden" id="errorMsg">
         Invalid credentials
       </p>
     </div>
+
     <script>
       document
         .getElementById("loginForm")
         .addEventListener("submit", async (e) => {
           e.preventDefault();
+
+          const loginText = document.getElementById("loginText");
+          const loaderSpinner = document.getElementById("loaderSpinner");
+          const loginBtn = document.getElementById("loginBtn");
+
+          // Show loader, hide text
+          loginText.classList.add("hidden");
+          loaderSpinner.classList.remove("hidden");
+
           const username = document.getElementById("username").value;
           const password = document.getElementById("password").value;
 
@@ -65,10 +77,14 @@
           );
 
           const data = await res.json();
+
           if (res.ok) {
             localStorage.setItem("isAuthenticated", "true");
-            window.location.href = "/index.html"; // redirect to homepage or admin version
+            window.location.href = "/index.html";
           } else {
+            // Hide loader, show login text again
+            loaderSpinner.classList.add("hidden");
+            loginText.classList.remove("hidden");
             document.getElementById("errorMsg").classList.remove("hidden");
           }
         });
