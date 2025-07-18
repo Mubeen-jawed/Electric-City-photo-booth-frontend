@@ -20,8 +20,8 @@ async function updateProfileVisibility() {
       profileSection.style.display = "block";
       mobileProfileSection.style.display = "block";
     } else {
-      profileSection.style.display = "none";
-      mobileProfileSection.style.display = "none";
+      profileSection.style.display = "hidden";
+      mobileProfileSection.style.display = "hidden";
     }
   } catch (error) {
     console.error("Error checking auth status:", error);
