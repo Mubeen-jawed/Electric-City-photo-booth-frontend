@@ -191,7 +191,7 @@ async function logout() {
     // After logout, update UI
     updateProfileVisibility();
     // Optionally reload or redirect to login page
-    window.location.href = "/login.html";
+    window.location.href = "/index.html";
   } catch (error) {
     console.error("Logout failed:", error);
   }
