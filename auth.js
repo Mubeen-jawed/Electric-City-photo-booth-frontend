@@ -6,12 +6,12 @@ function updateProfileVisibility() {
     "mobile-profile-section"
   );
 
-  if (isAuthenticated) {
-    profileSection.style.display = "block";
-    mobileProfileSection.style.display = "block";
-  } else {
+  if (!isAuthenticated) {
     profileSection.style.display = "none";
     mobileProfileSection.style.display = "none";
+  } else {
+    profileSection.style.display = "block";
+    mobileProfileSection.style.display = "block";
   }
 }
 
