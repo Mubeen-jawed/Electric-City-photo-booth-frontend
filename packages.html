@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Electric City Photo Booths</title>
+<link rel="icon" type="image/x-icon" href="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/home-logo">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="./images content/photo-booth-llc.png" rel="icon" type="image/png"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<!-- Swiper CSS -->
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Montserrat:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#f472b6",
+              secondary: "#c084fc",
+              accent: "#60a5fa",
+            },
+            fontFamily: {
+              fancy: ['"Poppins"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s forwards;
+      }
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        margin: 5px auto;
+        background: #f472b6;
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+</link></head>
+<body class="bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 text-gray-800 font-fancy">
+<!-- Transparent Navbar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/10">
+<div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-24">
+<!-- Logo -->
+<a class="flex items-center" href="#">
+<img alt="Logo" class="h-16 w-auto "  id="edit-photo-booth-llc" data-name="home-logo" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/home-logo"/>
+</a>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex space-x-10 font-semibold text-lg">
+<a class="hover:text-pink-400" href="./index.html">Home</a>
+<a class="hover:text-pink-400" href="./about.html">About</a>
+<a class="hover:text-pink-400" href="./packages.html">Packages</a>
+<a class="hover:text-pink-400" href="./gallary.html">Gallary</a>
+<a class="hover:text-pink-400" href="./contact.html">Contact</a>
+</nav>
+
+<!-- Profile Section (Desktop) -->
+<div class=" relative" id="profile-section">
+  <div class="hidden md:block">
+<button class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-white font-bold text-lg shadow-lg hover:scale-110 hover:shadow-pink-400/40 transition-all duration-300" id="profile-btn">
+<i class="fas fa-user"></i>
+</button>
+  </div>
+
+
+<!-- Dropdown Menu -->
+<div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-pink-200 py-2 hidden opacity-0 transform translate-y-2 transition-all duration-300" id="profile-dropdown">
+<button class="w-full px-4 py-3 text-left hover:bg-pink-50 flex items-center space-x-3 text-gray-700 transition-colors" id="change-logo-btn">
+<i class="fas fa-image text-pink-500"></i>
+<span>Change Logo</span>
+</button>
+<button class="w-full px-4 py-3 text-left hover:bg-pink-50 flex items-center space-x-3 text-gray-700 transition-colors" id="logout-btn">
+<i class="fas fa-sign-out-alt text-pink-500"></i>
+<span>Logout</span>
+</button>
+</div>
+</div>
+
+<!-- Mobile Hamburger -->
+<div class="md:hidden z-50 flex items-center  space-x-3">
+<!-- Mobile Profile -->
+<div class="relative" id="mobile-profile-section" style="display: none;">
+<button class="w-10 h-10 mt-3 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-white font-bold text-sm shadow-lg hover:scale-110 hover:shadow-pink-400/40 transition-all duration-300" id="mobile-profile-btn">
+<i class="fas fa-user"></i>
+</button>
+
+<!-- Mobile Dropdown Menu -->
+<div class="absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-xl border border-pink-200 py-2 hidden opacity-0 transform translate-y-2 transition-all duration-300" id="mobile-profile-dropdown">
+<button class="w-full px-3 py-2 text-left hover:bg-pink-50 flex items-center space-x-2 text-gray-700 transition-colors text-sm" id="mobile-change-logo-btn">
+<i class="fas fa-image text-pink-500"></i>
+<span>Change Logo</span>
+</button>
+<button class="w-full px-3 py-2 text-left hover:bg-pink-50 flex items-center space-x-2 text-gray-700 transition-colors text-sm" id="mobile-logout-btn">
+<i class="fas fa-sign-out-alt text-pink-500"></i>
+<span>Logout</span>
+</button>
+</div>
+</div>
+
+<!-- Hamburger Menu -->
+<button aria-label="Open Menu" class="relative flex flex-col items-center justify-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-pink-500" id="menu-toggle">
+<!-- Optional Text Label -->
+<span class="text-xs text-pink-500 mb-1 block">Menu</span>
+<!-- Three Bars -->
+<span class="block w-6 h-0.5 bg-pink-500 rounded mb-1 transition-all duration-300" id="bar1"></span>
+<span class="block w-6 h-0.5 bg-pink-500 rounded mb-1 transition-all duration-300" id="bar2"></span>
+<span class="block w-6 h-0.5 bg-pink-500 rounded transition-all duration-300" id="bar3"></span>
+</button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div class="fixed top-0 left-0 w-full h-screen bg-white/90 backdrop-blur-md flex flex-col items-center justify-center space-y-10 transform -translate-y-full transition-transform duration-300 md:hidden" id="mobile-menu">
+<a class="text-2xl hover:text-pink-400" href="./index.html">Home</a>
+<a class="text-2xl hover:text-pink-400" href="./about.html">About</a>
+<a class="text-2xl hover:text-pink-400" href="./packages.html">Packages</a>
+<a class="text-2xl hover:text-pink-400" href="./gallary.html">Gallary</a>
+<a class="text-2xl hover:text-pink-400" href="./contact.html">Contact</a>
+</div>
+
+<!-- Logo Change Modal -->
+<div class="fixed top-[200px] inset-0 bg-black/50 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm" id="logo-modal">
+<div class="bg-white rounded-2xl max-w-md w-full mx-4 p-6 transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold text-gray-800">Change Logo</h2>
+<button class="text-gray-500 hover:text-gray-700 text-2xl transition-colors" id="close-modal">
+<i class="fas fa-times"></i>
+</button>
+</div>
+
+<!-- Logo Upload Section -->
+<div class="relative  bg-pink-50 border-2 border-dashed border-pink-300 rounded-2xl p-8 text-center cursor-pointer hover:bg-pink-100 hover:border-pink-400 transition-all duration-300" id="logo-upload-wrapper">
+<i class="fas fa-cloud-upload-alt text-4xl text-pink-500 mb-4"></i>
+<div class="text-lg font-semibold text-pink-600 mb-2">Upload New Logo</div>
+<div class="text-sm text-pink-500 mb-2">
+<strong>Supported formats:</strong> JPG, PNG, GIF, WebP
+</div>
+<div class="text-xs text-pink-400">
+<strong>Recommended:</strong> PNG format, max 5MB
+</div>
+
+<!-- Logo Upload Loader -->
+<div class="absolute inset-0 bg-pink-50/95 backdrop-blur-sm rounded-2xl hidden items-center justify-center flex-col" id="logo-loader">
+<div class="w-10 h-10 border-3 border-pink-300 border-t-pink-500 rounded-full animate-spin mb-4"></div>
+<div class="text-pink-600 font-semibold mb-2">Uploading logo...</div>
+<div class="w-48 h-2 bg-pink-200 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-pink-500 to-pink-600 rounded-full w-0 animate-pulse"></div>
+</div>
+</div>
+
+<!-- Success Overlay -->
+<div class="absolute inset-0 bg-green-500/90 backdrop-blur-sm rounded-2xl hidden items-center justify-center flex-col text-white" id="logo-success">
+<i class="fas fa-check-circle text-5xl mb-3"></i>
+<div class="text-lg font-semibold">Logo updated successfully!</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- JavaScript for Menu Toggle -->
+<script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const bar1 = document.getElementById("bar1");
+        const bar2 = document.getElementById("bar2");
+        const bar3 = document.getElementById("bar3");
+
+        toggle.addEventListener("click", () => {
+          mobileMenu.classList.toggle("-translate-y-full");
+          mobileMenu.classList.toggle("translate-y-0");
+
+          bar1.classList.toggle("rotate-45");
+          bar2.classList.toggle("opacity-0");
+          bar3.classList.toggle("-rotate-45");
+
+          bar1.classList.toggle("translate-y-2");
+          bar3.classList.toggle("-translate-y-2");
+        });
+
+        // Optional: close menu on link click
+        document.querySelectorAll("#mobile-menu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("-translate-y-full");
+            mobileMenu.classList.remove("translate-y-0");
+
+            bar1.classList.remove("rotate-45", "translate-y-2");
+            bar2.classList.remove("opacity-0");
+            bar3.classList.remove("-rotate-45", "-translate-y-2");
+          });
+        });
+      });
+    </script>
+<section class="py-16 mt-8 bg-white" id="packages">
+<div class="max-w-7xl mx-auto px-4">
+<h2 class="text-4xl max-sm:text-2xl font-bold text-center text-pink-600 mb-4">
+          Our Booth Packages
+        </h2>
+<p class="text-center text-gray-600 mb-8">
+          Choose the perfect package for your special occasion
+        </p>
+<div class="flex flex-col sm:flex-row justify-center sm:space-x-4 space-y-4 sm:space-y-0 mb-6">
+<button class="tab-btn bg-pink-400 text-white px-4 py-2 rounded" data-type="wedding" onclick="showPackage('wedding')">
+    Digital Social Booth
+  </button>
+<button class="tab-btn bg-gray-200 hover:bg-pink-300 text-gray-800 px-4 py-2 rounded" data-type="birthday" onclick="showPackage('birthday')">
+    Gala Booth
+  </button>
+<button class="tab-btn bg-gray-200 hover:bg-pink-300 text-gray-800 px-4 py-2 rounded" data-type="party" onclick="showPackage('party')">
+    Social Booth With Prints
+  </button>
+</div>
+<div class="package-tab py-6 bg-white" id="wedding">
+<!-- Section Heading -->
+<div class="text-center mb-6">
+<p class="text-lg text-gray-600 max-w-xl mx-auto">
+                Elevate your event with our modern, sleek, and professional-grade photo experience. It's the perfect way to spark guest interaction and create lasting memories of your event. Guests can instantly send their captures to their digital device via text, email, QR code scan or AirDrop delivery.
+
+            </p>
+</div>
+<!-- Image + Package Flex -->
+<div class="flex flex-col md:flex-row items-center justify-center gap-10 px-4">
+<!-- Image -->
+<div class="w-full md:w-1/2 max-w-md">
+<img alt="Digital Social Booth" class="rounded-xl shadow-md w-full object-cover editable-img" id="packages-img-2" data-name="digital-social-booth" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/digital-social-booth"/>
+</div>
+<!-- Package Card -->
+<div class="w-full md:w-1/2 max-w-xl">
+<div class="border rounded-2xl p-8 shadow-xl">
+<h3 class="text-2xl font-bold text-pink-500 mb-4">
+                  Digital Social Booth - $250
+                </h3>
+<ul class="text-gray-700 space-y-2 mb-6 text-left">
+<li>2 Hrs Booth Time</li>
+<li>Professional Event Attendant</li>
+<li>Unlimited Photos</li>
+<li>GIFs &amp; Boomerangs</li>
+<li>Studio Lighting</li>
+<li>Canon DSLR (24MP)</li>
+<li>Online Gallery</li>
+<li>Instant Share</li>
+<li>Custom Overlay</li>
+<li>+$75 for Additional 1 Hr</li>
+</ul>
+<div class="flex justify-between max-sm:flex-col max-sm:space-y-3">
+<a class="bg-purple-500 text-white px-6 py-2 rounded-lg hover:bg-purple-600 transition" href="#booking" onclick="openWeddingForm('Basic')">📅 Book Now</a>
+<a class="bg-pink-500 text-white px-6 py-2 rounded-lg hover:bg-pink-600 transition" href="tel:+18646174554">📞 Call</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="package-tab py-6 bg-white" id="birthday">
+<!-- Section Heading -->
+<div class="text-center mb-6">
+<p class="text-lg text-gray-600 max-w-xl mx-auto">
+                 The GALA Booth delivers a truly glamorous experience, perfect for guests who've come dressed to impress! This sophisticated photo booth provides studio-quality captures, enhancing every photo with automatic skin smoothing and a flattering glow. Guests will love striking a pose and taking home professional-grade instant prints – truly a treasured memento from your event. After all, they got all dressed up for a reason!
+
+            </p>
+</div>
+<!-- Image + Package Flex -->
+<div class="flex flex-col md:flex-row items-center justify-center gap-10 px-4">
+<!-- Image -->
+<div class="w-full md:w-1/2 max-w-md">
+<img alt="Digital Social Booth" class="rounded-xl shadow-md w-full object-cover editable-img" id="packages-img-3" data-name="gala-booth" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gala-booth"/>
+</div>
+<!-- Package Card -->
+<div class="w-full md:w-1/2 max-w-xl">
+<div class="border rounded-2xl p-8 shadow-xl">
+<h3 class="text-2xl max-sm:text-xl font-bold text-pink-500 mb-4">
+                  3 Hours Gala Booth - $550
+                </h3>
+<ul class="text-gray-700 space-y-2 mb-6 text-left">
+<li>Professional Event Attendant</li>
+<li>Backdrop of Choice</li>
+<li>Unlimited Photos</li>
+<li>Printed 4x6 &amp; 2x6 Strips</li>
+<li>B&amp;W &amp; Face Filters</li>
+<li>Face Smoothing Effects</li>
+<li>Studio Lighting</li>
+<li>Canon DSLR (24MP)</li>
+<li>Live Online Gallery</li>
+<li>Text &amp; Email Sharing</li>
+<li>Custom Overlay + Start Screen</li>
+<li>Setup &amp; Tear Down Included</li>
+<li>+$100 for Additional Hour</li>
+</ul>
+<div class="flex justify-between max-sm:flex-col max-sm:space-y-3">
+<a class="bg-purple-500 text-white px-6 py-2 rounded-lg hover:bg-purple-600 transition" href="#booking" onclick="openWeddingForm('Basic')">📅 Book Now</a>
+<a class="bg-pink-500 text-white px-6 py-2 rounded-lg hover:bg-pink-600 transition" href="tel:+18646174554">📞 Call</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Party Packages -->
+<div class="package-tab py-6 bg-white" id="party">
+<!-- Section Heading -->
+<div class="text-center mb-6">
+<p class="text-lg text-gray-600 max-w-xl mx-auto">
+              Make your event unforgettable with a modern, professional photo experience that blends seamlessly with your theme. Our engaging photo booth encourages guests to let loose, capturing their genuine energy. Easily customize photo templates and overlays to perfectly coordinate with your event's branding. And the best part? Guests instantly receive high-quality prints to cherish forever.
+
+
+            </p>
+</div>
+<!-- Image + Package Flex -->
+<div class="flex flex-col md:flex-row items-center justify-center gap-10 px-4">
+<!-- Image -->
+<div class="w-full md:w-1/2 max-w-md">
+<img alt="Digital Social Booth" class="rounded-xl shadow-md w-full object-cover editable-img" id="packages-img-4" data-name="print-booth" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/print-booth"/>
+</div>
+<!-- Package Card -->
+<div class="w-full md:w-1/2 max-w-xl">
+<div class="border rounded-2xl p-8 shadow-xl">
+<h3 class="text-2xl max-sm:text-xl font-bold text-pink-500 mb-4">
+                  Social Booth With Prints - $300
+                </h3>
+<ul class="text-gray-700 space-y-2 mb-6 text-left">
+<li>2 Hrs Booth Time</li>
+<li>Professional Event Attendant</li>
+<li>Unlimited Captures</li>
+<li>Strips &amp; 4x6 Templates</li>
+<li>GIFs &amp; Boomerangs</li>
+<li>Studio Lighting</li>
+<li>Canon DSLR (24MP)</li>
+<li>Live Online Gallery</li>
+<li>Backdrop of Choice</li>
+<li>Text &amp; Email Sharing</li>
+<li>Custom Overlay + Start Screen</li>
+<li>Setup &amp; Tear Down Included</li>
+<li>+$75 for Extra Hour</li>
+</ul>
+<div class="flex justify-between max-sm:flex-col max-sm:space-y-3">
+<a class="bg-purple-500 text-white px-6 py-2 rounded-lg hover:bg-purple-600 transition" href="#booking" onclick="openWeddingForm('Basic')">📅 Book Now</a>
+<a class="bg-pink-500 text-white px-6 py-2 rounded-lg hover:bg-pink-600 transition" href="tel:+18646174554">📞 Call</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section>
+<!-- Booking Form Modal -->
+<div class="fixed inset-0 z-50 hidden bg-black bg-opacity-70 flex justify-center items-center px-4" id="weddingFormModal">
+<div class="bg-white text-gray-800 w-full max-w-2xl rounded-2xl shadow-2xl border border-pink-300 relative font-[Poppins] max-h-[90vh] overflow-hidden">
+<!-- Close Button -->
+<button class="absolute top-2 right-4 text-3xl font-bold text-gray-600 hover:text-pink-500" onclick="closeWeddingForm()">
+          ×
+        </button>
+<!-- Scrollable Form Area -->
+<div class="overflow-y-auto max-h-[85vh] p-6 sm:p-8">
+<!-- Logo -->
+<img alt="Electric City Photo Booths" class="mx-auto mb-4 w-32 editable-img" data-name="packages-img-5" id="packages-img-5" src="./images content/photo-booth.png"/>
+<!-- Title -->
+<h3 class="text-2xl font-bold mb-6 text-center text-pink-600 italic">
+            Digital Social Booth
+          </h3>
+<!-- Form Start -->
+<form class="space-y-4" id="weddingForm">
+<input id="selectedPackage" name="Selected Package" type="hidden" value=""/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Full Name" placeholder="Full Name" required="" type="text"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Email" placeholder="Email Address" required="" type="email"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Phone" placeholder="Phone Number" required="" type="tel"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Event Date" required="" type="date"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Start Time" required="" type="time"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Venue" placeholder="Booth Venue Location" required="" type="text"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Guests" placeholder="Estimated Number of Guests" type="number"/>
+<textarea class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Theme" placeholder="Any booth theme or special color?" rows="2"></textarea>
+<textarea class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Notes" placeholder="Any special requests or details?" rows="2"></textarea>
+<button class="bg-pink-600 text-white w-full py-3 rounded-xl font-semibold hover:bg-pink-700 transition-all shadow-md" type="submit">
+              Book My Date
+            </button>
+</form>
+</div>
+</div>
+</div>
+<!-- Thank You Popup -->
+<div class="fixed inset-0 z-50 hidden bg-black bg-opacity-70 flex items-center justify-center" id="thankYouPopup">
+<div class="bg-white p-6 rounded-2xl text-center shadow-2xl max-w-md w-full">
+<h3 class="text-2xl font-bold text-pink-600 mb-2">Thank You! 🎉</h3>
+<p class="text-gray-700 mb-4">
+          We've received your booking request. We'll be in touch shortly to
+          confirm details!
+        </p>
+<button class="bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700" onclick="closeThankYou()">
+          Close
+        </button>
+</div>
+</div>
+<!-- Booking Form Modal -->
+<div class="fixed inset-0 z-50 hidden bg-black bg-opacity-70 flex justify-center items-center px-4" id="birthdayFormModal">
+<div class="bg-white text-gray-800 w-full max-w-2xl rounded-2xl shadow-2xl border border-pink-300 relative font-[Poppins] max-h-[90vh] overflow-hidden">
+<!-- Close Button -->
+<button class="absolute top-2 right-4 text-3xl font-bold text-gray-600 hover:text-pink-500" onclick="closeBirthdayForm()">
+          ×
+        </button>
+<!-- Scrollable Form Area -->
+<div class="overflow-y-auto max-h-[85vh] p-6 sm:p-8">
+<!-- Logo -->
+<img alt="Electric City Photo Booths" class="mx-auto mb-4 w-32 editable-img" data-name="packages-img-6" id="packages-img-6" src="./images content/photo-booth.png"/>
+<!-- Title -->
+<h3 class="text-2xl font-bold mb-6 text-center text-pink-600 italic">
+            Gala Booth
+          </h3>
+<!-- Form Start -->
+<form class="space-y-4" id="birthdayForm">
+<input id="birthdaySelectedPackage" name="Selected Package" type="hidden" value=""/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Full Name" placeholder="Full Name" required="" type="text"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Email" placeholder="Email Address" required="" type="email"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Phone" placeholder="Phone Number" required="" type="tel"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Event Date" required="" type="date"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Start Time" required="" type="time"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Venue" placeholder="Event Location" required="" type="text"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Guests" placeholder="Estimated Number of Guests" type="number"/>
+<textarea class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Theme" placeholder="Any special theme or colors?" rows="2"></textarea>
+<textarea class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Notes" placeholder="Any special requests or surprises?" rows="2"></textarea>
+<button class="bg-pink-600 text-white w-full py-3 rounded-xl font-semibold hover:bg-pink-700 transition-all shadow-md" type="submit">
+              Book My Date
+            </button>
+</form>
+</div>
+</div>
+</div>
+<!-- Thank You Popup -->
+<div class="fixed inset-0 z-50 hidden bg-black bg-opacity-70 flex items-center justify-center" id="birthdayThankYouPopup">
+<div class="bg-white p-6 rounded-2xl text-center shadow-2xl max-w-md w-full">
+<h3 class="text-2xl font-bold text-pink-600 mb-2">Thank You! 🎉</h3>
+<p class="text-gray-700 mb-4">
+          We've received your booking request. We'll be in touch
+          shortly!
+        </p>
+<button class="bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700" onclick="closeBirthdayThankYou()">
+          Close
+        </button>
+</div>
+</div>
+<!-- Booking Form Modal -->
+<div class="fixed inset-0 z-50 hidden bg-black bg-opacity-70 flex justify-center items-center px-4" id="partyFormModal">
+<div class="bg-white text-gray-800 w-full max-w-2xl rounded-2xl shadow-2xl border border-pink-300 relative font-[Poppins] max-h-[90vh] overflow-hidden">
+<!-- Close Button -->
+<button class="absolute top-2 right-4 text-3xl font-bold text-gray-600 hover:text-pink-500" onclick="closePartyForm()">
+          ×
+        </button>
+<!-- Scrollable Form Area -->
+<div class="overflow-y-auto max-h-[85vh] p-6 sm:p-8">
+<!-- Logo -->
+<img alt="Electric City Photo Booths" class="mx-auto mb-4 w-32 editable-img" data-name="packages-img-7" id="packages-img-7" src="./images content/Electric_City_Photo_Booths_LLC.png"/>
+<!-- Title -->
+<h3 class="text-2xl font-bold mb-6 text-center text-pink-600 italic">
+            Social Booth With Prints
+          </h3>
+<!-- Form Start -->
+<form class="space-y-4" id="partyForm">
+<input id="partySelectedPackage" name="Selected Package" type="hidden" value=""/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Full Name" placeholder="Full Name" required="" type="text"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Email" placeholder="Email Address" required="" type="email"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Phone" placeholder="Phone Number" required="" type="tel"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Party Date" required="" type="date"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Start Time" required="" type="time"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Venue" placeholder="Event Location" required="" type="text"/>
+<input class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Guests" placeholder="Estimated Number of Guests" type="number"/>
+<textarea class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Theme" placeholder="Event theme, colors, or vibe?" rows="2"></textarea>
+<textarea class="w-full border-2 border-pink-300 p-3 rounded-xl shadow-sm focus:border-pink-500 transition" name="Notes" placeholder="Any special requests or instructions?" rows="2"></textarea>
+<button class="bg-pink-600 text-white w-full py-3 rounded-xl font-semibold hover:bg-pink-700 transition-all shadow-md" type="submit">
+              Book My Date
+            </button>
+</form>
+</div>
+</div>
+</div>
+<!-- Thank You Popup -->
+<div class="fixed inset-0 z-50 hidden bg-black bg-opacity-70 flex items-center justify-center" id="partyThankYouPopup">
+<div class="bg-white p-6 rounded-2xl text-center shadow-2xl max-w-md w-full">
+<h3 class="text-2xl font-bold text-pink-600 mb-2">Thank You! 🎉</h3>
+<p class="text-gray-700 mb-4">
+          We've received your party booking request. We'll be in touch soon!
+        </p>
+<button class="bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700" onclick="closePartyThankYou()">
+          Close
+        </button>
+</div>
+</div>
+<section class="bg-white py-16 max-sm:py-2 px-4 md:px-20">
+<div class="text-center mb-12">
+<h2 class="text-4xl max-sm:text-3xl font-bold text-gray-900 mb-4">
+      Corporate Events That Leave a Mark
+    </h2>
+<p class="text-gray-600 max-w-3xl mx-auto text-lg">
+      From product launches to employee appreciation days, our custom-branded photo booth experiences help businesses boost brand visibility, engage teams, and amplify social impact.
+    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-gray-50 rounded-xl p-6 shadow">
+<h3 class="text-xl font-semibold text-pink-500 mb-2">Brand Awareness</h3>
+<p class="text-gray-700">
+        Showcase your brand with customized booth setups—featuring branded overlays, digital frames, step-and-repeat backdrops, and more. Every photo becomes a shareable moment that keeps your logo in the spotlight.
+      </p>
+</div>
+<div class="bg-gray-50 rounded-xl p-6 shadow">
+<h3 class="text-xl font-semibold text-pink-500 mb-2">Employee Engagement</h3>
+<p class="text-gray-700">
+        Celebrate teams with personalized booth experiences. Add thank-you welcome screens, instant branded prints, or digital downloads employees will love. It’s a fun and memorable way to show appreciation.
+      </p>
+</div>
+<div class="bg-gray-50 rounded-xl p-6 shadow">
+<h3 class="text-xl font-semibold text-pink-500 mb-2">Social Sharing Power</h3>
+<p class="text-gray-700">
+        Maximize your event’s reach with instant sharing. Attendees can post their branded photos to social media in real-time—driving visibility for your company’s message, culture, or latest campaign.
+      </p>
+</div>
+</div>
+<div class="text-center max-md:mb-10 mt-10">
+<p class="text-lg text-gray-600 mb-8">
+      Every corporate event is unique. We’ll build a package based on your specific needs.
+    </p>
+<a class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-lg font-medium transition" href="#contact">
+      Request a Custom Quote
+    </a>
+</div>
+</section>
+<section class="bg-gray-50 py-12 px-4 md:px-20">
+<div class="text-center mb-10">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+      Perfect for Every Celebration
+    </h2>
+<p class="text-gray-600 max-w-2xl mx-auto">
+      Whether it’s a corporate event or a personal milestone, our photo booth experience brings fun, excitement, and unforgettable memories to every type of gathering.
+    </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-gray-700 text-sm md:text-base">
+<div class="bg-white rounded-xl shadow p-6">
+<h3 class="font-semibold text-lg text-pink-500 mb-2">Themed Parties</h3>
+<ul class="list-disc list-inside space-y-1">
+<li>Halloween</li>
+<li>Super Bowl Parties</li>
+<li>Kentucky Derby</li>
+<li>The Masters</li>
+</ul>
+</div>
+<div class="bg-white rounded-xl shadow p-6">
+<h3 class="font-semibold text-lg text-pink-500 mb-2">Personal Celebrations</h3>
+<ul class="list-disc list-inside space-y-1">
+<li>Birthday Parties</li>
+<li>Weddings &amp; Anniversaries</li>
+<li>Engagement &amp; Bridal Showers</li>
+<li>Baby Showers</li>
+<li>Graduations</li>
+</ul>
+</div>
+<div class="bg-white rounded-xl shadow p-6">
+<h3 class="font-semibold text-lg text-pink-500 mb-2">Community &amp; School</h3>
+<ul class="list-disc list-inside space-y-1">
+<li>Church &amp; Non-profit Events</li>
+<li>School Proms &amp; Formals</li>
+<li>Student &amp; Alumni Celebrations</li>
+<li>Fundraising Events</li>
+</ul>
+</div>
+<div class="bg-white rounded-xl shadow p-6">
+<h3 class="font-semibold text-lg text-pink-500 mb-2">Corporate Experiences</h3>
+<ul class="list-disc list-inside space-y-1">
+<li>Product Launches</li>
+<li>Employee Celebrations</li>
+<li>Marketing Events</li>
+</ul>
+</div>
+<div class="bg-white rounded-xl shadow p-6">
+<h3 class="font-semibold text-lg text-pink-500 mb-2">Reunions &amp; Public Events</h3>
+<ul class="list-disc list-inside space-y-1">
+<li>Family Reunions</li>
+<li>Class Reunions</li>
+<li>Public Festivals</li>
+<li>Block Parties</li>
+</ul>
+</div>
+</div>
+</section>
+<footer class="bg-gradient-to-br from-pink-100 via-pink-200 to-pink-100 text-gray-800 pt-10 pb-6">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 text-left">
+<!-- Logo & Tagline -->
+<div>
+<img alt="Logo" class="h-16 mb-4 " data-name="home-logo" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/home-logo"/>
+<p class="text-sm text-gray-700">
+            Electric City Photo Booths, LLC<br/>
+            Creating Memories One Click at a Time! 
+          </p>
+</div>
+<!-- Quick Navigation -->
+<div>
+<h3 class="font-bold text-lg mb-4">Quick Links</h3>
+<ul class="space-y-2 text-sm">
+<li>
+<a class="hover:text-pink-500 transition" href="./index.html">Home</a>
+</li>
+<li>
+<a class="hover:text-pink-500 transition" href="./about.html">About</a>
+</li>
+<li>
+<a class="hover:text-pink-500 transition" href="./packages.html">Packages</a>
+</li>
+<li>
+<a class="hover:text-pink-500 transition" href="./gallary.html">Gallary</a>
+</li>
+<li>
+<a class="hover:text-pink-500 transition" href="./contact.html">Contact</a>
+</li>
+</ul>
+</div>
+<!-- Contact Details -->
+<div>
+<h3 class="font-bold text-lg mb-4">Contact</h3>
+<p class="text-sm mb-2">Anderson, SC</p>
+<p class="text-sm mb-2">📞 (864) 617-4554</p>
+<p class="text-sm mb-4">📧 info@electriccityphotobooths.com</p>
+<!-- Social Icons -->
+<div class="flex space-x-4 mt-2">
+<a class="text-pink-600 hover:text-pink-800 transition transform hover:scale-110" href="https://www.facebook.com/share/19gUdvzHNA/" target="_blank">
+<i class="fab fa-facebook fa-lg"></i>
+</a>
+<a class="text-pink-600 hover:text-pink-800 transition transform hover:scale-110" href="https://www.instagram.com/electriccityphotoboothsllc/" target="_blank">
+<i class="fab fa-instagram fa-lg"></i>
+</a>
+</div>
+</div>
+<!-- Newsletter Signup -->
+<div>
+<h3 class="font-bold text-lg mb-4">Subscribe</h3>
+<p class="text-sm mb-3">Subscribe to our latest newsletters 💌</p>
+<form class="flex flex-col sm:flex-row gap-2">
+<input class="px-3 py-2 rounded-md text-sm border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-300 w-full" placeholder="Your email" type="email"/>
+<button class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition text-sm" type="submit">
+              Subscribe
+            </button>
+</form>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="mt-10 border-t border-pink-300 pt-4 text-center text-sm text-gray-600">
+        © <span id="year"></span> Electric City Photo Booths, LLC. All
+        rights reserved.
+      </div>
+</footer>
+<script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+<script src="./script.js"></script>
+<script src="./auth.js"></script>
+
+</body>
+</html>
