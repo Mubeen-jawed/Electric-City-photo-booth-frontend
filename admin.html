@@ -67,16 +67,19 @@
           const username = document.getElementById("username").value;
           const password = document.getElementById("password").value;
 
-          const res = await fetch("localhost:5000/api/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password }),
-          });
+          const res = await fetch(
+            "https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/login",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              credentials: "include", // <--- add this line
+              body: JSON.stringify({ username, password }),
+            }
+          );
 
           const data = await res.json();
 
           if (res.ok) {
-            localStorage.setItem("isAuthenticated", "true");
             window.location.href = "/index.html";
           } else {
             // Hide loader, show login text again

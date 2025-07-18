@@ -13,7 +13,6 @@
 <!-- Swiper CSS -->
 <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Montserrat:wght@500;700&amp;display=swap" rel="stylesheet"/>
-<script src="./script.js"></script>
 
 <script>
       tailwind.config = {
@@ -375,32 +374,45 @@
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
-    const gif = document.getElementById("gif");
-    const scrollWrapper = document.getElementById("gallery-auto-scroll-wrapper");
-    const videos = gif.querySelectorAll("video");
-    let current = 0;
+    async function init() {
+      try {
+        const res = await fetch('/api/check-auth', {
+          method: 'GET',
+          credentials: 'include', // send cookies for session
+        });
+        const data = await res.json();
+        const isAuthenticated = data.authenticated === true;
 
-    // Enable manual scroll only if authenticated
-    if (isAuthenticated) {
-      scrollWrapper.classList.add("overflow-scroll");
-    } else {
-      scrollWrapper.classList.remove("overflow-scroll");
-      scrollWrapper.classList.remove("overflow-hidden");
+        const gif = document.getElementById("gif");
+        const scrollWrapper = document.getElementById("gallery-auto-scroll-wrapper");
+        const videos = gif.querySelectorAll("video");
+        let current = 0;
 
-      // Wait a bit to ensure layout is ready
-      setTimeout(() => {
-        const videoWidth = videos[0].offsetWidth;
+        if (isAuthenticated) {
+          scrollWrapper.classList.add("overflow-scroll");
+        } else {
+          scrollWrapper.classList.remove("overflow-scroll");
+          scrollWrapper.classList.remove("overflow-hidden");
 
-        setInterval(() => {
-          current = (current + 1) % videos.length;
-          scrollWrapper.scrollTo({
-            left: current * videoWidth,
-            behavior: "smooth"
-          });
-        }, 4000);
-      }, 100); // small delay to allow DOM rendering
+          // Wait a bit to ensure layout is ready
+          setTimeout(() => {
+            const videoWidth = videos[0].offsetWidth;
+
+            setInterval(() => {
+              current = (current + 1) % videos.length;
+              scrollWrapper.scrollTo({
+                left: current * videoWidth,
+                behavior: "smooth"
+              });
+            }, 4000);
+          }, 100); // small delay to allow DOM rendering
+        }
+      } catch (error) {
+        console.error('Failed to check auth status:', error);
+      }
     }
+
+    init();
   });
 </script>
 
@@ -473,5 +485,9 @@
 <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+
+    <script src="./auth.js"></script>
+    <script src="./script.js"></script>
+
 </body>
 </html>
