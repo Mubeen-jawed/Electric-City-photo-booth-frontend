@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Electric City Photo Booths</title>
-<link rel="icon" type="image/x-icon" href="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/home-logo">
+<link rel="icon" type="image/x-icon" href="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/home-logo">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="./images content/photo-booth-llc.png" rel="icon" type="image/png"/>
@@ -13,7 +13,6 @@
 <!-- Swiper CSS -->
 <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Montserrat:wght@500;700&amp;display=swap" rel="stylesheet"/>
-
 <script>
       tailwind.config = {
         theme: {
@@ -52,27 +51,39 @@
         background: #f472b6;
         transition: all 0.3s ease-in-out;
       }
-    </style>
-</link></head>
+/* video {
+  object-fit: cover;
+  min-height: 200px;
+}
+
+.gallery-card video {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+}     */
+     </style>
+</link>
+
+</head>
 <body class="bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 text-gray-800 font-fancy">
 <!-- Transparent Navbar -->
 <header class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/10">
 <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-24">
 <!-- Logo -->
 <a class="flex items-center" href="#">
-<img alt="Logo" class="h-16 w-auto "  id="edit-photo-booth-llc" data-name="home-logo" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/home-logo"/>
+<img alt="Logo" class="h-16 w-auto "  id="edit-photo-booth-llc" data-name="home-logo" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/home-logo"/>
 </a>
 <!-- Desktop Navigation -->
 <nav class="hidden md:flex space-x-10 font-semibold text-lg">
 <a class="hover:text-pink-400" href="./index.html">Home</a>
 <a class="hover:text-pink-400" href="./about.html">About</a>
 <a class="hover:text-pink-400" href="./packages.html">Packages</a>
-<a class="hover:text-pink-400" href="./gallary.html">Gallary</a>
+<a class="hover:text-pink-400" href="./gallary.html">Gallery</a>
 <a class="hover:text-pink-400" href="./contact.html">Contact</a>
 </nav>
 
 <!-- Profile Section (Desktop) -->
-<div class=" relative hidden" id="profile-section">
+<div class="relative hidden" id="profile-section">
   <div class="hidden md:block">
 <button class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-white font-bold text-lg shadow-lg hover:scale-110 hover:shadow-pink-400/40 transition-all duration-300" id="profile-btn">
 <i class="fas fa-user"></i>
@@ -130,7 +141,7 @@
 <a class="text-2xl hover:text-pink-400" href="./index.html">Home</a>
 <a class="text-2xl hover:text-pink-400" href="./about.html">About</a>
 <a class="text-2xl hover:text-pink-400" href="./packages.html">Packages</a>
-<a class="text-2xl hover:text-pink-400" href="./gallary.html">Gallary</a>
+<a class="text-2xl hover:text-pink-400" href="./gallary.html">Gallery</a>
 <a class="text-2xl hover:text-pink-400" href="./contact.html">Contact</a>
 </div>
 
@@ -210,55 +221,76 @@
 <!-- 🌸 GALLERY SECTION -->
 <section class="bg-pink-50 mt-10 py-16 px-4 md:px-12" id="gallery">
 <div class="max-w-7xl mx-auto">
-<h2 class="text-4xl md:text-5xl font-bold text-center text-black-600 mb-6">Our Gallary</h2>
+<h2 class="text-4xl md:text-5xl font-bold text-center text-black-600 mb-6">Our Gallery</h2>
 <p class="text-center text-gray-600 max-w-xl mx-auto mb-10">Swipe through our favorite memories on mobile or browse our gallery below! </p>
-<!-- Mobile Scrollable Gallery -->
-<div class="block md:hidden overflow-x-auto whitespace-nowrap space-x-4 scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+
+<!-- Horizontal Images Mobile -->
+<div id="horizontal-images-mobile" class="block md:hidden overflow-x-auto whitespace-nowrap space-x-4 scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+  <!-- New Horizontal Image should appear here -->
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 1" class="w-full h-48 object-cover editable-img" data-name="gallery-01" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-01"/>
+<img alt="Gallery 1" class="w-full h-48 object-cover editable-img" data-name="gallery-01" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-01"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 2" class="w-full h-48 object-cover editable-img" data-name="gallery-02" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-02"/>
+<img alt="Gallery 2" class="w-full h-48 object-cover editable-img" data-name="gallery-02" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-02"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 3" class="w-full h-48 object-cover editable-img" data-name="gallery-03" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-03"/>
+<img alt="Gallery 3" class="w-full h-48 object-cover editable-img" data-name="gallery-03" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-03"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 1" class="w-full h-48 object-cover editable-img" data-name="gallery-04" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-04"/>
+<img alt="Gallery 1" class="w-full h-48 object-cover editable-img" data-name="gallery-04" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-04"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 2" class="w-full h-48 object-cover editable-img" data-name="gallery-05" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-05"/>
+<img alt="Gallery 2" class="w-full h-48 object-cover editable-img" data-name="gallery-05" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-05"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 3" class="w-full h-48 object-cover editable-img" data-name="gallery-06" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-06/">
+<img alt="Gallery 3" class="w-full h-48 object-cover editable-img" data-name="gallery-06" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-06/">
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 3" class="w-full h-48 object-cover editable-img" data-name="gallery-07" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-07"/>
+<img alt="Gallery 3" class="w-full h-48 object-cover editable-img" data-name="gallery-07" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-07"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 2" class="w-full h-48 object-cover editable-img" data-name="gallery-08" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-08"/>
+<img alt="Gallery 2" class="w-full h-48 object-cover editable-img" data-name="gallery-08" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-08"/>
 </div>
 <!-- Add more images as needed -->
 </div>
-<!-- Gallery Grid - Hidden on Mobile, Visible on Tablet/Desktop -->
-<div class="hidden sm:block">
+<!-- Horizontal/Vertical Images Desktop -->
+<div  id="images-desktop" class="hidden sm:block">
 <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-09" data-name="gallery-09" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-09"/>
-<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-10" data-name="gallery-10" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-10"/>
-<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-11" data-name="gallery-11" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-11"/>
-<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-12" data-name="gallery-12" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-12"/>
-<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-06" data-name="gallery-06" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-06"/>
-<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-04" data-name="gallery-04" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-04"/>
-<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-07" data-name="gallery-07" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-07"/>
-<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-01" data-name="gallery-01" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-01"/>
-<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-05" data-name="gallery-05" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-05"/>
-<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-08" data-name="gallery-08" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-08"/>
-<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-02" data-name="gallery-02" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-02"/>
-<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-03" data-name="gallery-03" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-03"/>
+<div id="vertical-images-desktop">
+  <!-- Vertical images will be inserted here -->
+</div>
+<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-09" data-name="gallery-09" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-09"/>
+<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-10" data-name="gallery-10" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-10"/>
+<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-11" data-name="gallery-11" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-11"/>
+<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-12" data-name="gallery-12" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-12"/>
+<div id="horizontal-images-desktop">
+      <!-- Horizontal images will be inserted here -->
+</div>
+<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-06" data-name="gallery-06" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-06"/>
+<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-04" data-name="gallery-04" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-04"/>
+<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-07" data-name="gallery-07" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-07"/>
+<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-01" data-name="gallery-01" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-01"/>
+<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-05" data-name="gallery-05" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-05"/>
+<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-08" data-name="gallery-08" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-08"/>
+<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-02" data-name="gallery-02" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-02"/>
+<img alt="Gallery Image" class=" rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:opacity-90 editable-img"  id="gallary-img-03" data-name="gallery-03" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-03"/>
 
 </div>
 </div>
 </div>
+
+
+<div id="admin" class="w-full flex justify-center items-center h-32 hidden" >
+  <button id="upload-button" type="button" class="inline-block bg-pink-600 text-white text-lg px-6 py-3 rounded-full shadow-lg hover:bg-pink-700 transition-all duration-300 ">
+    Add New Image
+  </button>
+</div>
+<input type="file" id="new-image-input" accept="image/*" style="display: none" />
+
+
+
+
+
 
 </section>
 <!-- Mobile Scroll Animation -->
@@ -290,17 +322,18 @@
 <!-- 🔄 Mobile & Tablet: Auto-Scrolling Carousel -->
 <div class="relative w-full max-w-xs sm:max-w-sm mx-auto overflow-scroll rounded-3xl shadow-xl border-4 border-pink-200 block md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 <div class="flex transition-transform duration-700 ease-in-out" id="gifSlider">
-<!-- GIF 1 -->
+<!-- New Videos should come here  -->
+  <!-- GIF 1 -->
 <video autoplay="" class="w-full h-auto shrink-0 editable-img" data-name="gif-1" loop="" muted="" playsinline="">
-<source src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gif-1" data-name="gif-1" type="video/mp4"/>
+<source src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gif-1" data-name="gif-1" />
 </video>
 <!-- GIF 2 -->
 <video autoplay="" class="w-full h-auto shrink-0 editable-img" data-name="gif-2" loop="" muted="" playsinline="">
-<source src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gif-2" data-name="gif-2" type="video/mp4"/>
+<source src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gif-2" data-name="gif-2" />
 </video>
 <!-- GIF 3 -->
 <video autoplay="" class="w-full h-auto shrink-0 editable-img" data-name="gif-3" loop="" muted="" playsinline="">
-<source src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gif-3" data-name="gif-3" type="video/mp4"/>
+<source src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gif-3" data-name="gif-3"/>
 </video>
 </div>
 </div>
@@ -317,64 +350,110 @@
 
       </script>
 <!-- 💻 Desktop: Static Flex Video Layout -->
-<div class="hidden md:flex justify-center gap-6 px-6 max-w-5xl mx-auto mt-6">
-<video autoplay="" class="w-1/3 rounded-2xl shadow-lg border-2 border-pink-200 editable-img" data-name="gif-1" loop="" muted="" playsinline="">
-<source src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gif-1"  type="video/mp4"/>
+<div id="featured-videos-desktop"
+     class="hidden md:grid px-6 max-w-5xl mx-auto mt-6 gap-6
+            grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+  <!-- Simple, robust form (no <source type="...">): -->
+    <video data-name="gif-1" autoplay="" class="w-full h-auto rounded-2xl shadow-lg border-2 border-pink-200 shrink-0 editable-img" loop="" muted="" playsinline="">
+<source  src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gif-1" type="video/mp4"/>
 </video>
-<video autoplay="" class="w-1/3 rounded-2xl shadow-lg border-2 border-pink-200 editable-img" data-name="gif-2" loop="" muted="" playsinline="">
-<source src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gif-2"  type="video/mp4"/>
+
+
+    <video data-name="gif-2" autoplay="" class="w-full h-auto rounded-2xl shadow-lg border-2 border-pink-200 shrink-0 editable-img" loop="" muted="" playsinline="">
+<source  src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gif-2" type="video/mp4"/>
 </video>
-<video autoplay="" class="w-1/3 rounded-2xl shadow-lg border-2 border-pink-200 editable-img" data-name="gif-3" loop="" muted="" playsinline="">
-<source src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gif-3"  type="video/mp4"/>
+
+  <video data-name="gif-3" autoplay="" class="w-full h-auto rounded-2xl shadow-lg border-2 border-pink-200 shrink-0 editable-img" loop="" muted="" playsinline="">
+<source  src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gif-3" type="video/mp4"/>
 </video>
+
 </div>
-<div class="block [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:hidden mt-12 overflow-x-auto whitespace-nowrap space-x-4 scroll-smooth pb-8">
+<style>
+/* Center a single leftover item in the last row (3-col grid) */
+@media (min-width: 768px) {
+  #featured-videos-desktop > :nth-last-child(1):nth-child(3n+1) {
+    grid-column: 2; /* put the lone item in the middle column */
+  }
+  /* Center the last two items: place them in cols 1 & 2, then center the grid area */
+  #featured-videos-desktop {
+    justify-items: center; /* keeps items visually centered within their cells */
+  }
+  /* Make items use their natural width so the pair looks centered */
+  #featured-videos-desktop > * { width: 100%; }
+}
+</style>
+
+
+  <div id="admin-video" class="w-full flex justify-center items-center h-32 hidden">
+    <button id="upload-button-video" type="button" class="inline-block bg-pink-600 text-white text-lg px-6 py-3 rounded-full shadow-lg hover:bg-pink-700 transition-all duration-300">
+      Add New Video
+    </button>
+  </div>
+
+<input type="file" id="new-video-input" accept="video/*" style="display: none" />
+
+
+
+<!-- Vertical Images Mobile -->
+
+<div class="block [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:hidden mt-12 overflow-x-auto whitespace-nowrap space-x-4 scroll-smooth pb-8" id="vertical-images-mobile">
+<!-- New Vertical Image should Appear here -->
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 1" class="w-full h-96 object-cover editable-img" data-name="gallery-09" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-09"/>
+<img alt="Gallery 1" class="w-full h-96 object-cover editable-img" data-name="gallery-09" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-09"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 2" class="w-full h-96 object-cover editable-img" data-name="gallery-09" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-10"/>
+<img alt="Gallery 2" class="w-full h-96 object-cover editable-img" data-name="gallery-10" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-10"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 3" class="w-full h-96 object-cover editable-img" data-name="gallery-09" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-11"/>
+<img alt="Gallery 3" class="w-full h-96 object-cover editable-img" data-name="gallery-11" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-11"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 1" class="w-full h-96 object-cover editable-img" data-name="gallery-09" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-12"/>
+<img alt="Gallery 1" class="w-full h-96 object-cover editable-img" data-name="gallery-12" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-12"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 2" class="w-full h-96 object-cover editable-img" data-name="gallery-09" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-13"/>
+<img alt="Gallery 2" class="w-full h-96 object-cover editable-img" data-name="gallery-13" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-13"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 3" class="w-full h-96 object-cover editable-img" data-name="gallery-09" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-14"/>
+<img alt="Gallery 3" class="w-full h-96 object-cover editable-img" data-name="gallery-14" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-14"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 3" class="w-full h-96 object-cover editable-img"  data-name="gallery-09" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-15"/>
+<img alt="Gallery 3" class="w-full h-96 object-cover editable-img"  data-name="gallery-15" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-15"/>
 </div>
 <div class="inline-block w-64 rounded-xl shadow-lg overflow-hidden animate-slide-in">
-<img alt="Gallery 2" class="w-full h-96 object-cover editable-img"  data-name="gallery-09" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gallery-16"/>
+<img alt="Gallery 2" class="w-full h-96 object-cover editable-img"  data-name="gallery-16" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gallery-16"/>
 </div>
 <!-- Add more images as needed -->
 </div>
+
+<div id="admin-sm" class="w-full flex justify-center items-center h-32 hidden">
+  <button id="upload-button" type="button" class="inline-block bg-pink-600 text-white text-lg px-6 py-3 rounded-full shadow-lg hover:bg-pink-700 transition-all duration-300">
+    Add New Image
+  </button>
+</div>
+
 <!-- 🔄 Mobile & Tablet: Auto-Scrolling Carousel -->
 <div class="relative w-full mt-8 mb-6 max-w-xs sm:max-w-sm mx-auto overflow-x-auto scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden rounded-3xl shadow-xl border-4 border-pink-200 block md:hidden" id="gallery-auto-scroll-wrapper">
 <div class="flex transition-transform duration-700 ease-in-out" id="gif">
 <!-- GIF 1 -->
 <video data-name="gif-4" autoplay="" class="w-full h-auto shrink-0 editable-img" loop="" muted="" playsinline="">
-<source  src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gif-4" type="video/mp4"/>
+<source  src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gif-4" />
 </video>
 <!-- GIF 2 -->
 <video data-name="gif-5" autoplay="" class="w-full h-auto shrink-0 editable-img" loop="" muted="" playsinline="">
-<source  src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gif-5"  type="video/mp4"/>
+<source  src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gif-5"  />
 </video>
 <!-- GIF 3 -->
 <video data-name="gif-6" autoplay="" class="w-full h-auto shrink-0 editable-img" loop="" muted="" playsinline="">
-<source  src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/gif-6"  type="video/mp4"/>
+<source  src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/gif-6"  />
 </video>
 </div>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+    const isAuthenticated = JSON.parse(
+    localStorage.getItem("isAuthenticated") || "null"
+  ).value === true;
+
     const gif = document.getElementById("gif");
     const scrollWrapper = document.getElementById("gallery-auto-scroll-wrapper");
     const videos = gif.querySelectorAll("video");
@@ -408,7 +487,7 @@
 <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 text-left">
 <!-- Logo & Tagline -->
 <div>
-<img alt="Logo" class="h-16 mb-4 " data-name="home-logo" src="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/home-logo">
+<img alt="Logo" class="h-16 mb-4 " data-name="home-logo" src="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/home-logo">
 <p class="text-sm text-gray-700">
             Electric City Photo Booths, LLC<br/>
             Creating Memories One Click at a Time! 
@@ -428,10 +507,13 @@
 <a class="hover:text-pink-500 transition" href="./packages.html">Packages</a>
 </li>
 <li>
-<a class="hover:text-pink-500 transition" href="./gallary.html">Gallary</a>
+<a class="hover:text-pink-500 transition" href="./gallary.html">Gallery</a>
 </li>
 <li>
 <a class="hover:text-pink-500 transition" href="./contact.html">Contact</a>
+</li>
+<li>
+<a class="hover:text-pink-500 transition" href="https://electriccityphotobooths.com/admin.html">Admin</a>
 </li>
 </ul>
 </div>
@@ -469,11 +551,14 @@
         rights reserved.
       </div>
 </footer>
+
 <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-    <script src="./auth.js"></script>
-<script src="./script.js"></script>
+      <script src="./script.js"></script>
+
+  <script src="./auth.js" ></script>
+  <script src="./addNewImages.js" ></script>
 
 </body>
 </html>

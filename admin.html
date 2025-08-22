@@ -7,7 +7,7 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/home-logo"
+      href="https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/home-logo"
     />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
@@ -26,13 +26,58 @@
           required
           type="text"
         />
-        <input
-          class="w-full p-2 border rounded"
-          id="password"
-          placeholder="Password"
-          required
-          type="password"
-        />
+        <div class="relative">
+          <input
+            class="w-full p-2 pr-12 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            id="password"
+            placeholder="Password"
+            required
+            type="password"
+          />
+          <button
+            type="button"
+            class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none transition-colors duration-200"
+            onclick="togglePassword()"
+            aria-label="Toggle password visibility"
+          >
+            <!-- Eye Open Icon -->
+            <svg
+              id="eyeOpen"
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+              ></path>
+            </svg>
+            <!-- Eye Closed Icon -->
+            <svg
+              id="eyeClosed"
+              class="w-5 h-5 hidden"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"
+              ></path>
+            </svg>
+          </button>
+        </div>
         <button
           id="loginBtn"
           class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 flex items-center justify-center"
@@ -67,19 +112,37 @@
           const username = document.getElementById("username").value;
           const password = document.getElementById("password").value;
 
-          const res = await fetch(
-            "https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/login",
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ username, password }),
-            }
-          );
+          const ADMIN_CREDENTIALS = {
+            username: "melissa brannan",
+            password: "melissa12",
+          };
 
-          const data = await res.json();
+          const lowerCaseUsername = username.toLowerCase();
 
-          if (res.ok) {
-            localStorage.setItem("isAuthenticated", "true");
+          const passCorrect =
+            ADMIN_CREDENTIALS.username == lowerCaseUsername &&
+            ADMIN_CREDENTIALS.password == password;
+
+          // const res = await fetch(
+          //   "https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/login",
+          //   {
+          //     method: "POST",
+          //     headers: { "Content-Type": "application/json" },
+          //     body: JSON.stringify({ username, password }),
+          //   }
+          // );
+
+          // const data = await res.json();
+
+          // if (res.ok) {
+          if (passCorrect) {
+            localStorage.setItem(
+              "isAuthenticated",
+              JSON.stringify({
+                value: true,
+                expiresAt: Date.now() + 3 * 60 * 60 * 1000,
+              })
+            );
             window.location.href = "/index.html";
           } else {
             // Hide loader, show login text again
@@ -88,6 +151,24 @@
             document.getElementById("errorMsg").classList.remove("hidden");
           }
         });
+    </script>
+
+    <script>
+      function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        const eyeOpen = document.getElementById("eyeOpen");
+        const eyeClosed = document.getElementById("eyeClosed");
+
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          eyeOpen.classList.add("hidden");
+          eyeClosed.classList.remove("hidden");
+        } else {
+          passwordInput.type = "password";
+          eyeOpen.classList.remove("hidden");
+          eyeClosed.classList.add("hidden");
+        }
+      }
     </script>
   </body>
 </html>

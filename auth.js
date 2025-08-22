@@ -1,6 +1,28 @@
+// Auto logout the user after 3 hours
+
+window.addEventListener("DOMContentLoaded", updateAuthIfExpired);
+
+function updateAuthIfExpired() {
+  const auth = JSON.parse(localStorage.getItem("isAuthenticated") || "null");
+
+  if (!auth || !auth.value || Date.now() >= auth.expiresAt) {
+    // Expired: reset value
+    localStorage.setItem(
+      "isAuthenticated",
+      JSON.stringify({
+        value: false,
+        expiresAt: 0,
+      })
+    );
+  }
+}
+
 // Initialize profile visibility based on authentication
+
 function updateProfileVisibility() {
-  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+  const isAuthenticated =
+    JSON.parse(localStorage.getItem("isAuthenticated") || "null").value ===
+    true;
   const profileSection = document.getElementById("profile-section");
   const mobileProfileSection = document.getElementById(
     "mobile-profile-section"
@@ -126,7 +148,7 @@ function handleLogoUpload(file) {
   logoLoader.classList.add("flex");
 
   fetch(
-    "https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/upload",
+    "https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/upload",
     {
       method: "POST",
       body: formData,
@@ -167,14 +189,26 @@ function handleLogoUpload(file) {
 
 // Logout functionality
 document.getElementById("logout-btn")?.addEventListener("click", () => {
-  localStorage.setItem("isAuthenticated", "false");
+  localStorage.setItem(
+    "isAuthenticated",
+    JSON.stringify({
+      value: false,
+      expiresAt: 0,
+    })
+  );
   updateProfileVisibility();
   profileDropdown.classList.add("hidden");
   window.location.reload();
 });
 
 document.getElementById("mobile-logout-btn")?.addEventListener("click", () => {
-  localStorage.setItem("isAuthenticated", "false");
+  localStorage.setItem(
+    "isAuthenticated",
+    JSON.stringify({
+      value: false,
+      expiresAt: 0,
+    })
+  );
   updateProfileVisibility();
   mobileProfileDropdown.classList.add("hidden");
   window.location.reload();

@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+  const isAuthenticated =
+    JSON.parse(localStorage.getItem("isAuthenticated") || "null").value ===
+    true;
 
   // Select all containers with class .video-wrapper
   const videoWrappers = document.querySelectorAll(".video-wrapper");
@@ -24,7 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (localStorage.getItem("isAuthenticated") === "true") {
+  if (
+    JSON.parse(localStorage.getItem("isAuthenticated") || "null").value === true
+  ) {
     const editableMedia = document.querySelectorAll(".editable-img");
     editableMedia.forEach((element) => {
       const isVideo = element.tagName.toLowerCase() === "video";
@@ -100,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <strong>Supported formats:</strong> MP4, WebM, AVI
           </div>
           <div>
-            <strong>Recommended:</strong> MP4 format, max 50MB, 1920x1080 resolution
+            <strong>Recommended:</strong> MP4 format, max 3MB, 1920x1080 resolution
           </div>
         `;
       } else {
@@ -319,8 +323,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <div style="font-size: 14px; opacity: 0.9;">
           ${
             isVideo
-              ? "MP4, WebM, AVI up to 50MB"
-              : "JPG, PNG, GIF, WebP up to 10MB"
+              ? "MP4, WebM, AVI up to 3MB"
+              : "JPG, PNG, GIF, WebP up to 1MB"
           }
         </div>
       `;
@@ -356,7 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loader.style.display = "flex";
 
         fetch(
-          "https://disciplinary-myrta-wajahat2020-3153049d.koyeb.app/api/images/upload",
+          "https://due-maryanna-electric-booth-1fc75707.koyeb.app/api/images/upload",
           {
             method: "POST",
             body: formData,
@@ -410,7 +414,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (e.target === editBtn || editBtn.contains(e.target)) return;
 
         // If authenticated, prioritize upload functionality
-        if (localStorage.getItem("isAuthenticated") === "true") {
+        if (
+          JSON.parse(localStorage.getItem("isAuthenticated") || "null")
+            .value === true
+        ) {
           const fileInput = document.createElement("input");
           fileInput.type = "file";
           fileInput.accept = isVideo
@@ -478,152 +485,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-function showPackage(type) {
-  // Hide all package sections
-  const tabs = document.querySelectorAll(".package-tab");
-  tabs.forEach((tab) => (tab.style.display = "none"));
-  document.getElementById(type).style.display = "block";
-
-  // Remove active classes from all buttons
-  const buttons = document.querySelectorAll(".tab-btn");
-  buttons.forEach((btn) => {
-    btn.classList.remove("bg-pink-400", "text-white");
-    btn.classList.add("bg-gray-200", "text-gray-800");
-  });
-
-  // Add active class to the correct button using data-type
-  const activeBtn = document.querySelector(`.tab-btn[data-type="${type}"]`);
-  if (activeBtn) {
-    activeBtn.classList.add("bg-pink-400", "text-white");
-    activeBtn.classList.remove("bg-gray-200", "text-gray-800");
-  }
-}
-
-// Set default package
-document.addEventListener("DOMContentLoaded", () => showPackage("birthday"));
-// wedding form
-
-function openWeddingForm(packageName) {
-  document.getElementById("weddingFormModal").classList.remove("hidden");
-  document.getElementById("selectedPackage").value = packageName;
-}
-
-function closeWeddingForm() {
-  document.getElementById("weddingFormModal").classList.add("hidden");
-}
-
-function closeThankYou() {
-  document.getElementById("thankYouPopup").classList.add("hidden");
-}
-
-document.getElementById("weddingForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const formData = new FormData(this);
-
-  fetch("https://formsubmit.co/ajax/electriccityphotoboothsllc@gmail.com", {
-    method: "POST",
-    headers: { Accept: "application/json" },
-    body: formData,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      document.getElementById("weddingFormModal").classList.add("hidden");
-      document.getElementById("thankYouPopup").classList.remove("hidden");
-      document.getElementById("weddingForm").reset();
-    })
-    .catch((error) => {
-      alert("⚠️ Submission failed. Please try again.");
-    });
-});
-
-//birthday form
-
-function openBirthdayForm(packageName) {
-  document.getElementById("birthdayFormModal").classList.remove("hidden");
-  document.getElementById("birthdaySelectedPackage").value = packageName;
-}
-
-function closeBirthdayForm() {
-  document.getElementById("birthdayFormModal").classList.add("hidden");
-}
-
-function closeBirthdayThankYou() {
-  document.getElementById("birthdayThankYouPopup").classList.add("hidden");
-}
-
-document
-  .getElementById("birthdayForm")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-
-    fetch("https://formsubmit.co/ajax/electriccityphotoboothsllc@gmail.com", {
-      method: "POST",
-      headers: { Accept: "application/json" },
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        document.getElementById("birthdayFormModal").classList.add("hidden");
-        document
-          .getElementById("birthdayThankYouPopup")
-          .classList.remove("hidden");
-        document.getElementById("birthdayForm").reset();
-      })
-      .catch((error) => {
-        alert("⚠️ Submission failed. Please try again.");
-      });
-  });
-
-//party form
-
-function openPartyForm(packageName) {
-  document.getElementById("partyFormModal").classList.remove("hidden");
-  document.getElementById("partySelectedPackage").value = packageName;
-}
-
-function closePartyForm() {
-  document.getElementById("partyFormModal").classList.add("hidden");
-}
-
-function closePartyThankYou() {
-  document.getElementById("partyThankYouPopup").classList.add("hidden");
-}
-
-document.getElementById("partyForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const formData = new FormData(this);
-
-  fetch("https://formsubmit.co/ajax/electriccityphotoboothsllc@gmail.com", {
-    method: "POST",
-    headers: { Accept: "application/json" },
-    body: formData,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      document.getElementById("partyFormModal").classList.add("hidden");
-      document.getElementById("partyThankYouPopup").classList.remove("hidden");
-      document.getElementById("partyForm").reset();
-    })
-    .catch((error) => {
-      alert("⚠️ Submission failed. Please try again.");
-    });
-});
-
 //animated gallery
-
-const gifSlider = document.getElementById("gifSlider");
-let currentIndex = 0;
-
-// Automatically scrolls every 4 seconds
-// setInterval(() => {
-//   const totalVideos = gifSlider.children.length;
-//   currentIndex = (currentIndex + 1) % totalVideos;
-//   gifSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
-// }, 4000);
-
-//client review\
-//equipmet video play
 
 function togglePlay(videoId, btn) {
   const video = document.getElementById(videoId);
